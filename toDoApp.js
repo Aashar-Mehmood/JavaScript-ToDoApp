@@ -45,12 +45,15 @@ function addToDo(name) {
 function addToLocal(itemName) {
 	
 	let todos;
+	// if todos does not exist then create and set it to empty array
 	if (localStorage.getItem('todos')===null){
 		todos = [];
 	}
+	// else get that todo and convert it to json format
 	else {
 		todos = JSON.parse(localStorage.getItem('todos'))
 	}
+	//push new item in that todo and convert it back to string
 	todos.push(itemName);
 	localStorage.setItem("todos",JSON.stringify(todos));
 
